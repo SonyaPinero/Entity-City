@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+#manhattan {
+  stroke: grey;
+  stroke-width: 2px;
+}
+</style>
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<body>
+
+<script>
+
+var width = 960,
+   height = 500;
+
+// example data for each district
+var colordata = {
+101: 8.5,
+102: 9.9,
+104: 6.7,
+105: 3.3,
+106: 5.4,
+107: 0.9,
+108: 1.4,
+109: 7.6,
+110: 8.7,
+111: 3.7,
+112: 2.7,
+164: 5.0,
+};
+
+var color = d3.scale.linear()
+              .range(['grey', 'purple'])
+              .domain([0, 10]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  d3.json("manhattan_districts.geojson", function(error, district_data) {
+
+    var projection = d3.geo.mercator()
+                       .center([-74.03, 40.79])
+                       .scale(90000)
+                       .translate([(width) / 2, (height)/2]);
+
+    var path = d3.geo.path()
+                 .projection(projection);
+
+    var g = svg.append("g");
+
+    g.append("g")
+     .attr("id", "manhattan")
+     .selectAll(".state")
+     .data(district_data.features)
+     .enter().append("path")
+       .attr("id", function(d){ return d.properties.BoroCD; })
+       .attr("fill", function(d){ return color(colordata[d.properties.BoroCD]);})
+       .attr("d", path);
+
+});
+
+</script>
+</body>
+</html>
+
+
+
