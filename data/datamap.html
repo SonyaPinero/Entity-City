@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <meta charset="utf-8">
 
 <style>
@@ -66,7 +66,46 @@ var svg = d3.select("body").append("svg")
 
 </script>
 </body>
-</html>
+</html> -->
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+/* CSS goes here. */
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+
+<script>
+
+var width = 960,
+    height = 1160;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var projection = d3.geo.mercator()
+            .center([-73.94, 40.70])
+            .scale(100000)
+            .translate([(width) / 2, (height)/2]);
+
+d3.json("testing.json", function(error, ny) {
+  if (error) return console.error(error);
+  debugger;
+  ny.features.forEach(function(feature){
+    svg.append("path")
+      .datum(feature)
+      .attr("d", d3.geo.path().projection(projection))
+      .attr("name", feature.properties.NTAName);
+  })
+});
+
+</script>
 
 
 
