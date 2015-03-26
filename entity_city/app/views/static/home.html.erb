@@ -1,0 +1,26 @@
+<script>
+
+var width = 960,
+    height = 1160;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var projection = d3.geo.mercator()
+            .center([-73.94, 40.70])
+            .scale(100000)
+            .translate([(width) / 2, (height)/2]);
+
+d3.json("coords.js", function(error, ny) {
+  
+  if (error) return console.error(error);
+  ny.features.forEach(function(feature){
+    svg.append("path")
+      .datum(feature)
+      .attr("d", d3.geo.path().projection(projection))
+      .attr("name", feature.properties.NTAName);
+  })
+});
+
+</script>
