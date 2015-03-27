@@ -1,4 +1,4 @@
-App.collections['neighborhoodCollection'] = Backbone.Collection.extend({
-	model: App.models.neighborhood,
+var NeighborhoodCollection = Backbone.Collection.extend({
+	model: Neighborhood,
 	url: '/neighborhoods'
 })

@@ -1,4 +1,4 @@
-App.views['neighborhoodListView'] = Backbone.View.extend({
+var NeighborhoodListView = Backbone.View.extend({
 	tagName: 'li',
 	className: 'neighborhoods-list',
 	render: function(){
@@ -12,7 +12,7 @@ App.views['neighborhoodListView'] = Backbone.View.extend({
 	},
 
 	template: function(){
-    return HandlebarsTemplates.neighborhodLi(this.model.attributes);
+    return HandlebarsTemplates.neighborhoodLi(this.model.attributes);
   }
 
 })

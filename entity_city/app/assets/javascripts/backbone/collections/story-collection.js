@@ -1,4 +1,4 @@
-App.collections['storyCollection'] = Backbone.Collection.extend({
-	model: App.models.story,
+var StoryCollection = Backbone.Collection.extend({
+	model: Story,
 	url: '/stories'
 })

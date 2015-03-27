@@ -1,6 +1,6 @@
-App.collectionViews['storyCollectionView'] = Backbone.View.extend({
-	tagName: 'div',
-	className: 'stories',
+var StoryCollectionView = Backbone.View.extend({
+	tagName: 'ul',
+	className: 'stories-ul',
 	comparator: function(model){
 		console.log('hit comparator');
 		return model.get('id');
@@ -8,8 +8,8 @@ App.collectionViews['storyCollectionView'] = Backbone.View.extend({
 	render: function(){
 		this.$el.empty().html(this.template());
 		this.collection.models.forEach(function(model){
-			var newView = new App.views.storyListView({model: model});
-			this.$el.children('.stories-list').append(newView.$el);
+			var newView = new StoryListView({model: model});
+			this.$el.append(newView.$el);
 		}.bind(this))
 		$('#main').append(this.$el);
 		return this;
@@ -18,10 +18,24 @@ App.collectionViews['storyCollectionView'] = Backbone.View.extend({
 		this.render();
 		this.listenTo(this.collection, 'add', this.render.bind(this, {wait: true}))
 	},
+	template: function(){
+    return HandlebarsTemplates.storyCollectionView();
+  },
 	events: {
-		'submit #new-story': 'createStory'
+		'submit #new-story': 'createStory',
+		"click .stories-li": "showStory"
 	},
-	createStory: function(e){
+
+  showStory: function(){
+  	this.collection.models.forEach(function(model){
+			var newStory = new StoryContentView({model: model});
+			this.$el.children('p').append(newStory.$el);
+		}.bind(this))
+		$('#main').append(this.$el);
+		return this;
+  },
+
+		createStory: function(e){
 		e.preventDefault();
 
 		var formData = e.currentTarget.elements;

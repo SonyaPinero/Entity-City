@@ -1,6 +1,6 @@
-App.views['storyListView'] = Backbone.View.extend({
+var StoryListView = Backbone.View.extend({
 	tagName: 'li',
-	className: 'stories-list',
+	className: 'stories-li',
 	render: function(){
 		this.$el.html(this.template());
 		return this;

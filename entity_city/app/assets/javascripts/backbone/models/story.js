@@ -1,3 +1,3 @@
-App.models['story'] = Backbone.Model.extend({
+var Story = Backbone.Model.extend({
 
 })

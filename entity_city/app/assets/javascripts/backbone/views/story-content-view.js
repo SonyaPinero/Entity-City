@@ -1,17 +1,16 @@
-App.views['storyContentView'] = Backbone.View.extend({
+var StoryContentView = Backbone.View.extend({
 	tagName: 'div',
 	className: 'story-content',
-	render: function(mode){
-		mode = mode || 'Show'
-		this.$el.html(this.template(mode));
+	render: function(){
+		this.$el.html(this.template());
 		$('#main').append(this.$el);
 		return this;
 	},
 	initialize: function(){
 		this.render();
 	},
-	template: function(mode){
-		return HandlebarsTemplates['storyContent' + mode](this.model.attributes);
+	template: function(){
+		return HandlebarsTemplates.storyContentShow(this.model.attributes);
 	},
 	events: {
 	

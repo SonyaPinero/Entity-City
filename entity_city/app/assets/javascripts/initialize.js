@@ -1,7 +1,7 @@
-var App = {
-  models: {},
-  views: {},
-  collections: {},
-  collectionViews: {},
-  routers: {}
-}
+// var App = {
+//   models: {},
+//   views: {},
+//   collections: {},
+//   collectionViews: {},
+//   routers: {}
+// }

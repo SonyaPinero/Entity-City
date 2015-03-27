@@ -1,4 +1,11 @@
-class StoryController < ApplicationController
+class StoriesController < ApplicationController
+
+	def index 
+		respond_to do |format|
+			format.html 
+			format.json { render :json => Story.all}
+		end
+	end
 
 	def create 
 		story = Story.create(story_params)
