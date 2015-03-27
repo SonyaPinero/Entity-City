@@ -11,7 +11,7 @@
 //             error: function (result) {
 //             }
 //     });
-// function draw_histogram(where_to_draw, data_to_draw){
+// function draw_nyc(where_to_draw, data_to_draw){
 //   //Your d3js code here
 
 

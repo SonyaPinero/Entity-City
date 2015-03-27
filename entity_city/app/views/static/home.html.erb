@@ -1,3 +1,15 @@
+<style>
+
+path {
+  fill: #4D4D4D;
+}
+
+path:hover {
+  fill: #A32900;
+}
+
+</style>
+
 <script>
 
 var width = 960,
@@ -12,7 +24,7 @@ var projection = d3.geo.mercator()
             .scale(100000)
             .translate([(width) / 2, (height)/2]);
 
-d3.json("coords.js", function(error, ny) {
+d3.json("coords.json", function(error, ny) {
   
   if (error) return console.error(error);
   ny.features.forEach(function(feature){
@@ -24,3 +36,5 @@ d3.json("coords.js", function(error, ny) {
 });
 
 </script>
+
+<div id="main"></div>

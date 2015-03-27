@@ -13,5 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
 //= require d3
+
+//= require underscore
+//= require backbone
+//= require handlebars.runtime
+//= require_tree ./templates
+//= require initialize
+
+//= require ./backbone/models/neighborhood
+//= require ./backbone/models/story
+//= require ./backbone/collections/neighborhood-collection
+//= require ./backbone/collections/story-collection
+
+//= require_tree ./backbone
+
 //= require_tree .
