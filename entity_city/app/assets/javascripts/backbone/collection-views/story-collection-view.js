@@ -8,7 +8,8 @@ var StoryCollectionView = Backbone.View.extend({
 	render: function(){
 		this.$el.empty().html(this.template());
 		this.collection.models.forEach(function(model){
-			var newView = new StoryListView({model: model});
+			// var newView = new StoryListView({model: model});
+			var newView = new StoryView({model:model});
 			this.$el.append(newView.$el);
 		}.bind(this))
 		$('#main').append(this.$el);
@@ -22,18 +23,27 @@ var StoryCollectionView = Backbone.View.extend({
     return HandlebarsTemplates.storyCollectionView();
   },
 	events: {
-		'submit #new-story': 'createStory',
-		"click .stories-li": "showStory"
+		'submit #new-story': 'createStory'//,
+		//"click .stories-li": "showStory"
 	},
 
-  showStory: function(){
-  	this.collection.models.forEach(function(model){
-			var newStory = new StoryContentView({model: model});
-			this.$el.children('p').append(newStory.$el);
-		}.bind(this))
-		$('#main').append(this.$el);
-		return this;
-  },
+  // showStory: function(){
+  // 		this.collection.models.forEach(function(model){
+		// 		var newStory = new StoryContentView({model: model});
+		// 		this.$el.children('stories-li').append(newStory.$el);
+		// }.bind(this))
+		// $('#main').append(this.$el);
+		// return this;
+  // },
+
+  //   showStory: function(e){
+  //   	e.preventDefault();
+  //   	var model = this.collection.at($(e.currentTarget).data('id') - 1)
+		// 	var newStory = new StoryContentView({model: model});
+		// 	$(e.currentTarget).append(newStory.$el);
+		// $('#main').append(this.$el);
+		// return this;
+  // },
 
 		createStory: function(e){
 		e.preventDefault();
