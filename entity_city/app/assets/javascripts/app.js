@@ -8,6 +8,8 @@ $(function(){
 	// 	}
 	// });
 
+$('svg').click(function(){
+
 var stories = new StoryCollection();
 	stories.fetch({
 		success: function(){
@@ -16,5 +18,7 @@ var stories = new StoryCollection();
 			}) 
 		}
 	});
+
+})
 
 })

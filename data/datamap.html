@@ -96,7 +96,6 @@ var projection = d3.geo.mercator()
 
 d3.json("testing.json", function(error, ny) {
   if (error) return console.error(error);
-  debugger;
   ny.features.forEach(function(feature){
     svg.append("path")
       .datum(feature)

@@ -34,6 +34,11 @@ var StoryView = Backbone.View.extend({
 		this.renderTitle();
 	},
 
+	emptyMain: function(){
+		mainDiv = $('#main')
+		mainDiv.empty();
+	},
+
 	renderTitle: function(){
 		this.$el.html(this.templateLi());
 	},
@@ -49,8 +54,21 @@ var StoryView = Backbone.View.extend({
 	},
 
 	hideStory: function(){
-		this.$el.hide();
+		this.emptyMain();
+		this.resetDiv();
+	},
+
+	resetDiv: function(){
+		var stories = new StoryCollection();
+			stories.fetch({
+			success: function(){
+					var storiesView = new StoryCollectionView({
+					collection: stories
+				}) 
+			}
+		})
 	}
+
 
 	// render: function(){
 	// 	if(this.storyDisplay == false){
