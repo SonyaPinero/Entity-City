@@ -26,15 +26,18 @@ var StoryView = Backbone.View.extend({
 	tagName: 'div',
 	className: 'story-content',
 	events:{
-			"click": 'render'
+			"click": 'renderStory',
+			"click .story-view": 'hideStory'
 	},//events
+	
+	initialize: function(options){
+		this.renderTitle();
+	},
+
 	renderTitle: function(){
 		this.$el.html(this.templateLi());
 	},
-	initialize: function(options){
-		this.storyDisplay = false;
-		this.renderTitle();
-	},
+	
 	templateStory: function(){
 		return HandlebarsTemplates.storyContentShow(this.model.attributes);
 	},
@@ -44,14 +47,18 @@ var StoryView = Backbone.View.extend({
 	renderStory: function(){
 		this.$el.html(this.templateStory());
 	},
-	render: function(){
-		if(this.storyDisplay = true){
-			this.renderStory();
-		}else{
-			this.renderTitle();
-		}
-		this.storyDisplay = !(this.storyDisplay);
+
+	hideStory: function(){
+		this.$el.hide();
 	}
 
+	// render: function(){
+	// 	if(this.storyDisplay == false){
+	// 		this.renderStory();
+	// 	}else{
+	// 		this.renderTitle();
+	// 	}
+	// 	// this.storyDisplay = !(this.storyDisplay);
+	// }
 
 })
