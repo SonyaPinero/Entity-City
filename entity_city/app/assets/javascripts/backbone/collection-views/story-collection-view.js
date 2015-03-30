@@ -1,6 +1,6 @@
 var StoryCollectionView = Backbone.View.extend({
-	tagName: 'ul',
-	className: 'stories-ul',
+	tagName: 'div',
+	className: 'stories-div',
 	comparator: function(model){
 		console.log('hit comparator');
 		return model.get('id');

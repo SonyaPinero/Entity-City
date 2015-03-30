@@ -1,0 +1,36 @@
+#ghost-box h1 {
+	transition: text-shadow 0.5s ease;
+	font-family: 'Amatic SC', cursive;
+	font-size: 100px;
+	/*text-shadow: 300px 0px 8px #848482;*/
+}
+
+#ghost-box {
+	text-align: center ;
+	margin-left: auto; 
+  margin-right: auto;
+}
+
+.mirror {
+	-moz-transform: scale(-1, 1);
+	-webkit-transform: scale(-1, 1);
+	-o-transform: scale(-1, 1);
+	-ms-transform: scale(-1, 1);
+	transform: scale(-1, 1);
+}
+
+#main {
+	position: absolute;
+}
+
+/*#ghost-box h1:hover {
+    text-shadow:
+        0px 100px 8px #848482,
+        50px 80px 8px #848482,
+        100px 60px 8px #848482,
+        150px 40px 8px #848482,
+        200px 20px 8px #848482,
+        250px 10px 8px #848482,
+       	300px 0px 8px #848482; 
+    text-decoration: none;
+}*/
