@@ -5,6 +5,7 @@ var NeighborhoodCollectionView = Backbone.View.extend({
 		console.log('hit comparator');
 		return model.get('id');
 	},
+	
 	render: function(){
 		// this.$el.empty().html(this.template());
 		// this.collection.models.forEach(function(model){
@@ -13,6 +14,12 @@ var NeighborhoodCollectionView = Backbone.View.extend({
 		// }.bind(this))
 		// $('#main').append(this.$el);
 		// return this;
+
+		var currentNCV = this;	
+
+		var storyTotalDiv = d3.select('body')
+			.append('div')
+			.attr('id', 'storyTotalDiv')
 
 		var neighborhoodCollView = this;
 
@@ -38,36 +45,26 @@ var NeighborhoodCollectionView = Backbone.View.extend({
 		      .attr("d", d3.geo.path().projection(projection))
 		      .attr("id", feature.properties.NTAName)
 		      .attr("class", feature.properties.BoroName)
-		      .on('mouseover', function(feature){
-                        d3.select(this)
-                        // var xPosition = d3.event.pageX + 'px'
-                        // var yPosition = d3.event.pageY + 'px'
-                        // console.log('xpos:' + xPosition, 'ypos' + yPosition)
-                        svg.append('text')
-                            .attr('id', 'tooltip')
-                            .attr('x', xPosition)
-                            .attr('y', yPosition)
-                            // .attr('text-anchor', 'middle')
-                            .attr('font-family', 'sans-serif')
-                            .attr('font-size', '20px')
-                            .attr('font-weight', 'bold')
-                            .text(feature.properties.NTAName);
-                          })
-          .on('mouseout', function(){
-                        d3.select('#tooltip').remove().transition();
+		      .on('mousemove', function(d){
+							var neighborhood = neighborhoodCollView.collection.findWhere({name: d.properties.NTAName});
+		      		var stories = new StoryCollection().fetch({
+		      					success: function(collection, data){
+		      					currentNCV
+		      					.storyTotal = collection.where({neighborhood_id: neighborhood.id}).length
+		      					}
+		      		})
+								return storyTotalDiv
+									.style('left', d3.event.pageX+10 + 'px')
+									.style('top', d3.event.pageY-10 + 'px')
+									.style('visibility', 'visible') 
+                  .text(currentNCV
+                  	.storyTotal);
+		      	})
+					.on('mouseout', function(){
+                   return storyTotalDiv.style('visibility', 'hidden')
                     });
 
 
-
-		      // .on('mouseover', function(d){
-		      // 		var neighborhood = neighborhoodCollView.collection.findWhere({name: d.properties.NTAName})
-		      // 		var stories = new StoryCollection().fetch({
-		      // 			// async: false
-		      // 			success: function(collection, data){
-		      // 				console.log(collection.where({neighborhood_id: neighborhood.id}).length)
-		      // 			}
-		      // 		})
-		      // 	});
 		  })
 		});
 	

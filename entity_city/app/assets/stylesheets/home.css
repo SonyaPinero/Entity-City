@@ -33,6 +33,23 @@ path:hover {
 	transform: scale(-1, 1);
 }
 
+#storyTotalDiv {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-anchor: middle;
+  font-family: 'Amatic SC', cursive;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid black;
+  position: absolute;
+  visibility: hidden;
+  background-color: white;
+  padding: 10px;
+}
+
+
+
 /*#ghost-box h1:hover {
     text-shadow:
         0px 100px 8px #848482,
