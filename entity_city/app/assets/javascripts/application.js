@@ -15,6 +15,7 @@
 //= require turbolinks
 
 //= require d3
+//= require d3tip
 
 //= require underscore
 //= require backbone

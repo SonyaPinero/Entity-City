@@ -1,3 +1,17 @@
+path {
+  fill: #4D4D4D;
+}
+
+path:hover {
+  fill: #A32900;
+}
+
+#neighborhoods {
+  margin-left: auto; 
+  margin-right: auto;
+  display: block;
+}
+
 #ghost-box h1 {
 	transition: text-shadow 0.5s ease;
 	font-family: 'Amatic SC', cursive;
@@ -17,10 +31,6 @@
 	-o-transform: scale(-1, 1);
 	-ms-transform: scale(-1, 1);
 	transform: scale(-1, 1);
-}
-
-#main {
-	position: absolute;
 }
 
 /*#ghost-box h1:hover {

@@ -1,13 +1,13 @@
 var StoryCollectionView = Backbone.View.extend({
-	tagName: 'div',
-	className: 'stories-div',
+	// tagName: 'div',
+	// className: 'stories-div',
 	comparator: function(model){
 		console.log('hit comparator');
 		return model.get('id');
 	},
 	render: function(){
 		this.$el.empty().html(this.template());
-		this.collection.models.forEach(function(model){
+		this.collection.storiesByNeighborhood(this.neighborhoodId).forEach(function(model){
 			// var newView = new StoryListView({model: model});
 			var newView = new StoryView({model:model});
 			this.$el.append(newView.$el);

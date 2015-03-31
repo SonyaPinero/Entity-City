@@ -1,4 +1,7 @@
 var StoryCollection = Backbone.Collection.extend({
 	model: Story,
-	url: '/stories'
+	url: '/stories',
+	storiesByNeighborhood: function(neighborhoodId){
+		return this.where({neighborhoodId: neighborhoodId})
+	}
 })

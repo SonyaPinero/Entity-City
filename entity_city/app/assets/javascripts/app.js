@@ -1,16 +1,19 @@
 $(function(){
-	// var neighborhoods = new NeighborhoodCollection();
-	// neighborhoods.fetch({
-	// 	success: function(){
-	// 		var neighborhoodsView = new NeighborhoodCollectionView({
-	// 			collection: neighborhoods
-	// 		}) 
-	// 	}
-	// });
+	var neighborhoods = new NeighborhoodCollection();
+	neighborhoods.fetch({
+		success: function(){
+			var neighborhoodsView = new NeighborhoodCollectionView({
+				collection: neighborhoods,
+				el: $('svg')
+			}) 
+		}
+	});
 
-	$('svg').click(function(){
-		mainDiv = $('#main')
-		mainDiv.empty();
+
+
+	// $('svg').click(function(){
+	// 	mainDiv = $('#main')
+	// 	mainDiv.empty();
 
 	var stories = new StoryCollection();
 		stories.fetch({
@@ -20,7 +23,6 @@ $(function(){
 				}) 
 			}
 		});
-	})
 
     // $(document).click(function(e){
     //     var x = e.pageX + 'px';
