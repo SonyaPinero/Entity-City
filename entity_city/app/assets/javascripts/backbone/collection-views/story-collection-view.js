@@ -7,7 +7,7 @@ var StoryCollectionView = Backbone.View.extend({
 		return model.get('id');
 	},
 	render: function(){
-		this.$el.empty().html(this.template());
+		// this.$el.empty().html(this.template());
 		this.collection.storiesByNeighborhood().forEach(function(model){
 		// this.collection..forEach(function(model){
 			// var newView = new StoryListView({model: model});

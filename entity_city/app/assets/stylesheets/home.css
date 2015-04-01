@@ -1,3 +1,7 @@
+body {
+  font-family: 'Amatic SC', cursive;
+}
+
 path {
   fill: #4D4D4D;
 }
@@ -34,13 +38,14 @@ path:hover {
 }
 
 #storyTotalDiv {
+  display: block;
+  text-align: center;
   width: 20px;
   height: 20px;
+  line-height: 20px;
   border-radius: 50%;
-  text-anchor: middle;
-  text-align: center;
   font-family: 'Amatic SC', cursive;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   border: 2px solid black;
   position: absolute;
@@ -51,12 +56,20 @@ path:hover {
 
 #storyInfoBox {
   width: 400px;
-  height: 400px;
+  max-height: 400px;
+  height: 100%;
+  font-size: 30px;
   visibility: hidden;
   background-color: white;
   border: 2px solid black;
   position: absolute;
 }
+
+/*.stories-div {
+  width: 400px;
+  max-height: 400px;
+  height: 100%;
+}*/
 
 
 /*#ghost-box h1:hover {

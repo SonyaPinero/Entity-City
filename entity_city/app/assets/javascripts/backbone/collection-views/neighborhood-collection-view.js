@@ -70,11 +70,13 @@ var NeighborhoodCollectionView = Backbone.View.extend({
           })
 					.on('click', function(d){
 						storyTotalDiv.style('visibility', 'hidden')
-						var storyDiv = $('.story-content');
-						storyDiv.empty();
+						var storyDiv = $('.stories-div');
+						storyDiv.remove();
+						var storyContent = $('.story-content');
+						storyContent.remove();
 						
 						// finding the neighborhood_id
-						var neighborhood = neighborhoodCollView.collection.findWhere({name: d.properties.NTAName});
+						neighborhood = neighborhoodCollView.collection.findWhere({name: d.properties.NTAName});
 		      		
 		      		// now I need some stories
 		      		var stories = new StoryCollection();
