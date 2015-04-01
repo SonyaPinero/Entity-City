@@ -13,7 +13,6 @@ $(function(){
 		}
 	});
 
-
 	// var stories = new StoryCollection();
 	// 	stories.fetch({
 	// 		success: function(){
@@ -32,31 +31,12 @@ $(function(){
 	}
 	removeAddClass();
 
-  // $('body').click(function (e) {
-  // 	if ($("#storyInfoBox").is(":visible" )) {
-  // 		if (e.target.id !== 'storyInfoBox' && e.target.classList[0] !== "Manhattan" && e.target.className('stories-div') !== 'stories-div' && e.target.className('story-content') !== 'story-content' && e.target.className('story-view') !== 'story-view'); {
-  // 			$("#storyInfoBox").css('visibility', 'hidden');
-  // 		};
-  // 	};
-  // });
 
-
-
-
-	// $('body').click(function(e){    
- //    var storyBox = $('#storyInfoBox')
- //    if (e.target.id !== 'storyInfoBox' && e.target.classList[0] !== "Manhattan" ) { 
- //    	if (storyBox.length > 0){
-	//     	storyBox.remove();            
- //    	}
- //    }  
-	// });
-
-
-	// $('body').on('click', function(e){
-	// 	debugger
-	// 	var parents = $(e.target).parents('.story-view');
-	// 	console.log(parents);
-	// })
+$('body').click(function(e){
+    var storyBox = $('#storyInfoBox')
+    if (e.target.id !== 'storyInfoBox' && e.target.classList[0] !== "Manhattan" && e.target.nodeName !== 'P' && e.target.nodeName !== 'H1' && e.target.nodeName !== 'H3') { 
+    		storyBox.css('visibility', 'hidden');
+    	}
+	});
 
 })
