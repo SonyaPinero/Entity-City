@@ -55,21 +55,21 @@ path:hover {
 }
 
 #storyInfoBox {
-  width: 400px;
+ /* width: 400px;
+  max-width: 100%;
   max-height: 400px;
-  height: 100%;
+  height: 100%;*/
   font-size: 30px;
   visibility: hidden;
   background-color: white;
   border: 2px solid black;
   position: absolute;
+  padding: 15px;
 }
 
-/*.stories-div {
-  width: 400px;
-  max-height: 400px;
-  height: 100%;
-}*/
+.story-view p {
+  text-indent: 40px;
+}
 
 
 /*#ghost-box h1:hover {

@@ -89,7 +89,15 @@ var NeighborhoodCollectionView = Backbone.View.extend({
 											})
 									}
 		      		})
+		      		if (currentNCV.storyTotal == 0) {
+		      			return storyInfoBox
+									.style('left', d3.event.pageX+10 + 'px')
+						  		.style('top', d3.event.pageY-10 + 'px')
+									.style('visibility', 'visible')
+                  .text('This neighborhood does not contain any stories');
+              }
 		      		return storyInfoBox
+		      			.text('')
 								.style('left', d3.event.pageX+10 + 'px')
 						  	.style('top', d3.event.pageY-10 + 'px')
 								.style('visibility', 'visible') 

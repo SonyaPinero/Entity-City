@@ -32,6 +32,16 @@ $(function(){
 	}
 	removeAddClass();
 
+  // $('body').click(function (e) {
+  // 	if ($("#storyInfoBox").is(":visible" )) {
+  // 		if (e.target.id !== 'storyInfoBox' && e.target.classList[0] !== "Manhattan" && e.target.className('stories-div') !== 'stories-div' && e.target.className('story-content') !== 'story-content' && e.target.className('story-view') !== 'story-view'); {
+  // 			$("#storyInfoBox").css('visibility', 'hidden');
+  // 		};
+  // 	};
+  // });
+
+
+
 
 	// $('body').click(function(e){    
  //    var storyBox = $('#storyInfoBox')
@@ -42,18 +52,11 @@ $(function(){
  //    }  
 	// });
 
-	// var $ghostElement = $('#ghost-box');
-
- //    var ghostLoop = $(document).ready(function () {
- //        $ghostElement.addClass('mirror');
- //        setInterval(function () {
- //            $ghostElement.removeClass('mirror');
- //        }, 5000);
- //    });
 
 	// $('body').on('click', function(e){
-	// 	var parents = $(e.target).parents('.story-content');
-	// 	console.log(parents.length);
+	// 	debugger
+	// 	var parents = $(e.target).parents('.story-view');
+	// 	console.log(parents);
 	// })
 
 })
