@@ -21,6 +21,11 @@ var NeighborhoodCollectionView = Backbone.View.extend({
 			.append('div')
 			.attr('id', 'storyTotalDiv')
 
+		var storyInfoBox = d3.select('body')
+			.append('div')
+			.attr('id', 'storyInfoBox')
+
+
 		var neighborhoodCollView = this;
 
 		var width = 960;
@@ -61,8 +66,32 @@ var NeighborhoodCollectionView = Backbone.View.extend({
                   	.storyTotal);
 		      	})
 					.on('mouseout', function(){
-                   return storyTotalDiv.style('visibility', 'hidden')
-                    });
+            return storyTotalDiv.style('visibility', 'hidden')
+          })
+					.on('click', function(d){
+						storyTotalDiv.style('visibility', 'hidden')
+						var storyDiv = $('.story-content');
+						storyDiv.empty();
+						
+						// finding the neighborhood_id
+						var neighborhood = neighborhoodCollView.collection.findWhere({name: d.properties.NTAName});
+		      		
+		      		// now I need some stories
+		      		var stories = new StoryCollection();
+							stories.fetch({
+									success: function(collection, data){
+											// var neighborhoodStories = collection.where({neighborhood_id: neighborhood.id})
+											collection.neighborhoodId = neighborhood.id;
+											var storiesView = new StoryCollectionView({
+												collection: collection
+											})
+									}
+		      		})
+		      		return storyInfoBox
+								.style('left', d3.event.pageX+10 + 'px')
+						  	.style('top', d3.event.pageY-10 + 'px')
+								.style('visibility', 'visible') 
+					});
 
 
 		  })

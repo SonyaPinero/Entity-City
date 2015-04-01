@@ -1,4 +1,8 @@
 $(function(){
+
+	var stories;
+	var storiesView;
+
 	var neighborhoods = new NeighborhoodCollection();
 	neighborhoods.fetch({
 		success: function(){
@@ -8,8 +12,6 @@ $(function(){
 			}) 
 		}
 	});
-
-
 
 	// $('svg').click(function(){
 	// 	mainDiv = $('#main')
@@ -35,17 +37,15 @@ $(function(){
     //     $(document.body).append(div);        
     // });
 
- 
 
- $(document).ready(function() {
-        var loops = 10;
-        function removeAddClass() {
-            $("#ghost-box").toggleClass("mirror");
-            if (--loops > 0)
-                 setTimeout(removeAddClass, 5000);
-        }
-        removeAddClass();
-    });
+	var loops = 10;
+  function removeAddClass() {
+		$("#ghost-box").toggleClass("mirror");
+	  if (--loops > 0) {
+	  	setTimeout(removeAddClass, 5000);
+	  }
+	}
+	removeAddClass();
 
 	// var $ghostElement = $('#ghost-box');
 
@@ -55,9 +55,6 @@ $(function(){
  //            $ghostElement.removeClass('mirror');
  //        }, 5000);
  //    });
-
-
-    
 
 	// $('body').on('click', function(e){
 	// 	var parents = $(e.target).parents('.story-content');

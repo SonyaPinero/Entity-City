@@ -35,7 +35,7 @@ var StoryView = Backbone.View.extend({
 	},
 
 	emptyMain: function(){
-		mainDiv = $('#main')
+		var mainDiv = $('#storyInfoBox')
 		mainDiv.empty();
 	},
 
@@ -50,23 +50,35 @@ var StoryView = Backbone.View.extend({
 		return HandlebarsTemplates.storyLi(this.model.attributes);
 	},
 	renderStory: function(){
+		var storyDiv = $('.story-content');
+		storyDiv.empty();
 		this.$el.html(this.templateStory());
 	},
 
 	hideStory: function(){
 		this.emptyMain();
 		this.resetDiv();
+		this.renderTitle();
 	},
 
 	resetDiv: function(){
+		// var stories = new StoryCollection();
+		// 	stories.fetch({
+		// 	success: function(){
+		// 			var storiesView = new StoryCollectionView({
+		// 			collection: stories
+		// 		}) 
+		// 	}
+		// })
 		var stories = new StoryCollection();
 			stories.fetch({
-			success: function(){
+				success: function(collection, data){
+					collection.neighborhoodId = neighborhood.id;
 					var storiesView = new StoryCollectionView({
-					collection: stories
-				}) 
-			}
-		})
+						collection: collection
+					})
+				}
+		  })
 	}
 
 
