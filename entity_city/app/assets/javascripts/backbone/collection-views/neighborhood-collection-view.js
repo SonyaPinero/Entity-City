@@ -28,17 +28,18 @@ var NeighborhoodCollectionView = Backbone.View.extend({
 
 		var neighborhoodCollView = this;
 
-		var width = 960;
-		    height = 900;
+		var width = 1000;
+		    height = 1500;
 
 		var svg = d3.select(this.el)
 		    .attr("width", width)
 		    .attr("height", height)
-		    .attr("viewBox", "0 0 1100 50")
+		    .attr("viewBox", "0 0 1100 650")
+
 
 		var projection = d3.geo.mercator()
 		            .center([-73.94, 40.70])
-		            .scale(225000)
+		            .scale(300000)
 		            .translate([(width/2), (height)/2]);
 
 		d3.json("coords.json", function(error, ny) {

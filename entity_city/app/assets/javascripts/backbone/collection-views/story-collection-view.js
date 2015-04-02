@@ -57,7 +57,7 @@ var StoryCollectionView = Backbone.View.extend({
 				title: formData.title.value,
 				address: formData.address.value,
 				content: formData.content.value,
-				neighborhood_id: formData.neighborhood_id.value
+				neighborhood_id: formData.neighborhood.id.value
 			},
 			{
 				success: function(){
