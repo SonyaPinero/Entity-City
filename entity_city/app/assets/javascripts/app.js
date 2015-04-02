@@ -39,4 +39,13 @@ $('body').click(function(e){
     	}
 	});
 
+// function clickMe() {
+// 	$('body').click(function(e){
+// 		debugger
+// 		console.log(e.target);
+// 		})
+// 	}
+// 	clickMe();
+
+
 })

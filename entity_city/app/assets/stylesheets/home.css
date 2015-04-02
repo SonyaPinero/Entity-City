@@ -1,5 +1,5 @@
 body {
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Amatic SC', sans-serif;
 }
 
 path {
@@ -18,7 +18,7 @@ path:hover {
 
 #ghost-box h1 {
 	transition: text-shadow 0.5s ease;
-	font-family: 'Amatic SC', cursive;
+	font-family: 'Amatic SC', sans-serif;
 	font-size: 100px;
 	/*text-shadow: 300px 0px 8px #848482;*/
 }
@@ -70,6 +70,46 @@ path:hover {
 .story-view p {
   text-indent: 40px;
 }
+
+#red {
+  color: #A32900;
+}
+
+#fake:hover {
+    color: #A32900;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/*.blooddrop {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 40px;
+  width: 40px;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  -webkit-transform:rotate(-45deg);
+  transform: rotate(-45deg);
+  background: #A32900;
+  overflow: hidden;
+  box-shadow: inset 10px 10px 20px rgba(0,0,0,0.8);
+  position: absolute;
+  bottom: 100px;
+  -webkit-animation: fall 7s linear infinite;
+  -moz-animation: fall 7s linear infinite;
+}
+
+/* animate the drops*/
+@-webkit-keyframes fall {
+  to {margin-top:900px;}
+}
+@-moz-keyframes fall {
+  to {margin-top:900px;}
+}
+*/
 
 
 /*#ghost-box h1:hover {
