@@ -31,17 +31,17 @@ var StoryView = Backbone.View.extend({
 	},//events
 	
 	initialize: function(options){
-		var that = this;
-		var stories = new StoryCollection().fetch({
-		      							success: function(collection, data){
-		      					 		collection = collection.where({published: true })
-		      					 		}
-		      						})
-		stories.forEach(function(story){
+		// var that = this;
+		// var stories = new StoryCollection().fetch({
+		//       							success: function(collection, data){
+		//       					 		collection = collection.where({published: true })
+		//       					 		}
+		//       						})
+		// stories.forEach(function(story){
 			
-			that.renderTitle();
+			this.renderTitle();
 
-		})
+		// })
 		
 	},
 

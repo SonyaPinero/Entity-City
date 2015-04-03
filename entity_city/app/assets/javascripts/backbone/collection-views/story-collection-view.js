@@ -8,22 +8,23 @@ var StoryCollectionView = Backbone.View.extend({
 	},
 	render: function(){
 		// this.$el.empty().html(this.template());
-		
-		this.collection.storiesByNeighborhood().forEach(function(model){
-		// this.collection..forEach(function(model){
-			// var newView = new StoryListView({model: model});
-			
-		
-			var newView = new StoryView({model:model});
-			this.$el.append(newView.$el);
-		}.bind(this))
-		$('#storyInfoBox').append(this.$el);
-
+		var self = this;
+		self.collection.storiesByNeighborhood().forEach(function(model){
+			// this.collection..forEach(function(model){
+				// var newView = new StoryListView({model: model});
+			if ( model.get('published') ) {
+				var newView = new StoryView({model:model});
+				// debugger
+				self.$el.append(newView.$el);
+			}
+		})
+		$('#storyInfoBox').append(self.$el);
 
 		$('.stories-div').append("<span id='fakeadd'><p>"+ 'Add a story' + "</p></span>");
 			
 		return this;
 	},
+	
 	initialize: function(){
 		this.render();
 		this.listenTo(this.collection, 'add', this.render.bind(this, {wait: true}))
@@ -86,21 +87,23 @@ var StoryCollectionView = Backbone.View.extend({
   // },
 
 		createStory: function(e){
-		e.preventDefault();
+			console.log('createStory');
+			e.preventDefault();
 
-		var formData = e.target.elements;
+			var formData = e.target.elements;
+			// defaults to unpublished
+			var storyData = 
+				{
+					title: formData.title.value,
+					address: formData.address.value,
+					content: formData.content.value,
+					neighborhood_id: neighborhood.id,
+					published: false
 
-		var storyData = 
-			{
-				title: formData.title.value,
-				address: formData.address.value,
-				content: formData.content.value,
-				neighborhood_id: neighborhood.id
-
-			}
+				}
 			
-					this.collection.create(storyData);	
-					this.clearForm();
+				this.collection.create(storyData);	
+				this.clearForm();
 		}
 
 
