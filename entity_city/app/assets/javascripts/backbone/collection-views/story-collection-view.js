@@ -8,13 +8,17 @@ var StoryCollectionView = Backbone.View.extend({
 	},
 	render: function(){
 		// this.$el.empty().html(this.template());
+		
 		this.collection.storiesByNeighborhood().forEach(function(model){
 		// this.collection..forEach(function(model){
 			// var newView = new StoryListView({model: model});
+			
+		
 			var newView = new StoryView({model:model});
 			this.$el.append(newView.$el);
 		}.bind(this))
 		$('#storyInfoBox').append(this.$el);
+
 
 		$('.stories-div').append("<span id='fakeadd'><p>"+ 'Add a story' + "</p></span>");
 			

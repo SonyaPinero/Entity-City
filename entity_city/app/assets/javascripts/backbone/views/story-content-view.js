@@ -31,7 +31,18 @@ var StoryView = Backbone.View.extend({
 	},//events
 	
 	initialize: function(options){
-		this.renderTitle();
+		var that = this;
+		var stories = new StoryCollection().fetch({
+		      							success: function(collection, data){
+		      					 		collection = collection.where({published: true })
+		      					 		}
+		      						})
+		stories.forEach(function(story){
+			
+			that.renderTitle();
+
+		})
+		
 	},
 
 	emptyMain: function(){

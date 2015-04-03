@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
 		# Story.all.where(published: true)
 		respond_to do |format|
 			format.html 
-			format.json { render :json => Story.all}
+			format.json { render :json => Story.all.where(published: true)}
 		end
 	end
 
