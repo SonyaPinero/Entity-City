@@ -38,6 +38,25 @@ var StoryCollectionView = Backbone.View.extend({
   	this.$el.empty().html(this.template());
 	},
 
+	resetDiv: function(){
+				
+					var stories = new StoryCollection();
+					stories.fetch({
+						success: function(collection, data){
+							collection.neighborhoodId = neighborhood.id;
+							var storiesView = new StoryCollectionView({
+								collection: collection
+							})
+						}
+		  		})
+
+	},
+
+	clearForm: function(){
+		var newBox = $('#new-story');
+		newBox.remove();
+	},
+
 	events: {
 		'click p': 'renderForm',
 		'submit #new-story': 'createStory'//,
@@ -65,34 +84,20 @@ var StoryCollectionView = Backbone.View.extend({
 		createStory: function(e){
 		e.preventDefault();
 
-		var formData = e.currentTarget.elements;
+		var formData = e.target.elements;
 
-		this.model.save(
+		var storyData = 
 			{
 				title: formData.title.value,
 				address: formData.address.value,
 				content: formData.content.value,
 				neighborhood_id: neighborhood.id
 
-			},
-			{
-				success: function(){
-						
-					var stories = new StoryCollection();
-					stories.fetch({
-						success: function(collection, data){
-							collection.neighborhoodId = neighborhood.id;
-							var storiesView = new StoryCollectionView({
-								collection: collection
-							})
-						}
-		  		})
-				debugger
-
-				}.bind(this)
+			}
 			
-			})
-	}
+					this.collection.create(storyData);	
+					this.clearForm();
+		}
 
 
 })

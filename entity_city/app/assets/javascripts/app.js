@@ -35,18 +35,26 @@ $(function(){
 
 $('body').click(function(e){
     var storyBox = $('#storyInfoBox')
-    if (e.target.id !== 'storyInfoBox' && e.target.classList[0] !== "Manhattan" && e.target.nodeName !== 'P' && e.target.nodeName !== 'H1' && e.target.nodeName !== 'H3' && e.target.nodeName !== 'INPUT' && e.target.nodeName !== 'FORM' ) { 
+    var name = e.target.nodeName;
+    if (e.target.id !== 'storyInfoBox' && 
+    		e.target.classList[0] !== "Manhattan" && 
+    		e.target.id !== 'story-view' &&
+    		name !== 'P' && 
+    		name !== 'H1' && 
+    		name !== 'H3' && 
+    		name !== 'INPUT' && 
+    		name !== 'FORM') { 
     		storyBox.css('visibility', 'hidden');
     	}
 	});
 
-// function clickMe() {
-// 	$('body').click(function(e){
-// 		debugger
-// 		console.log(e.target);
-// 		})
-// 	}
-// 	clickMe();
+function clickMe() {
+	$('body').click(function(e){
+		debugger
+		console.log(e.target);
+		})
+	}
+	clickMe();
 
 
 })
