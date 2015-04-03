@@ -50,6 +50,7 @@ var StoryView = Backbone.View.extend({
 		return HandlebarsTemplates.storyLi(this.model.attributes);
 	},
 	renderStory: function(){
+		$('#fakeadd').remove();
 		var storyDiv = $('.story-content');
 		storyDiv.empty();
 		this.$el.html(this.templateStory());

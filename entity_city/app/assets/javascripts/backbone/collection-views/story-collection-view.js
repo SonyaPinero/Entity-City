@@ -15,6 +15,9 @@ var StoryCollectionView = Backbone.View.extend({
 			this.$el.append(newView.$el);
 		}.bind(this))
 		$('#storyInfoBox').append(this.$el);
+
+		$('.stories-div').append("<span id='fakeadd'><p>"+ 'Add a story' + "</p></span>");
+			
 		return this;
 	},
 	initialize: function(){
@@ -24,7 +27,19 @@ var StoryCollectionView = Backbone.View.extend({
 	template: function(){
     return HandlebarsTemplates.storyCollectionView();
   },
+
+  renderForm: function() {
+  	if (($('#storyInfoBox')[0].childNodes[0]).length == 46) {
+  		var box = ($('#storyInfoBox')[0].childNodes[0])
+  		box.remove();
+  		this.$el.empty().html(this.template());
+  	};
+  	
+  	this.$el.empty().html(this.template());
+	},
+
 	events: {
+		'click p': 'renderForm',
 		'submit #new-story': 'createStory'//,
 		//"click .stories-li": "showStory"
 	},
@@ -57,12 +72,25 @@ var StoryCollectionView = Backbone.View.extend({
 				title: formData.title.value,
 				address: formData.address.value,
 				content: formData.content.value,
-				neighborhood_id: formData.neighborhood.id.value
+				neighborhood_id: neighborhood.id
+
 			},
 			{
 				success: function(){
-					this.render('Show');
+						
+					var stories = new StoryCollection();
+					stories.fetch({
+						success: function(collection, data){
+							collection.neighborhoodId = neighborhood.id;
+							var storiesView = new StoryCollectionView({
+								collection: collection
+							})
+						}
+		  		})
+				debugger
+
 				}.bind(this)
+			
 			})
 	}
 

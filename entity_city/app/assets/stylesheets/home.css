@@ -17,9 +17,9 @@ path:hover {
 }
 
 #ghost-box h1 {
-	transition: text-shadow 0.5s ease;
+/*	transition: text-shadow 0.5s ease;*/
 	font-family: 'Amatic SC', sans-serif;
-	font-size: 125px;
+	font-size: 135px;
 	/*text-shadow: 300px 0px 8px #848482;*/
 }
 
@@ -81,6 +81,38 @@ path:hover {
     cursor: pointer;
 }
 
+#fakeadd {
+  color: #A32900;
+  font-size: 30px;
+  text-align: center;
+}
+
+#fakeadd:hover {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.formtext {
+    height: 25px !important;
+    width: 300px;
+}
+
+label {
+  color: #A32900;
+}
+
+form {
+  text-align: center;
+}
+
+
+input[type=submit] {
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 50px;
+  color: #A32900;
+  padding: 100px;
+}
 
 /*.blooddrop {
   display: inline-block;

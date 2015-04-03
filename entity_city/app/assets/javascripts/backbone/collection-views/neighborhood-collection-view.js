@@ -96,6 +96,7 @@ var NeighborhoodCollectionView = Backbone.View.extend({
 						  		.style('top', d3.event.pageY-10 + 'px')
 									.style('visibility', 'visible')
                   .text('This neighborhood does not contain any stories');
+              
               }
 		      		return storyInfoBox
 		      			.text('')

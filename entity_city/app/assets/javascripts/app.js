@@ -1,5 +1,6 @@
 $(function(){
 	var neighborhood;
+	var noStories;
 	var stories;
 	var storiesView;
 
@@ -34,7 +35,7 @@ $(function(){
 
 $('body').click(function(e){
     var storyBox = $('#storyInfoBox')
-    if (e.target.id !== 'storyInfoBox' && e.target.classList[0] !== "Manhattan" && e.target.nodeName !== 'P' && e.target.nodeName !== 'H1' && e.target.nodeName !== 'H3') { 
+    if (e.target.id !== 'storyInfoBox' && e.target.classList[0] !== "Manhattan" && e.target.nodeName !== 'P' && e.target.nodeName !== 'H1' && e.target.nodeName !== 'H3' && e.target.nodeName !== 'INPUT' && e.target.nodeName !== 'FORM' ) { 
     		storyBox.css('visibility', 'hidden');
     	}
 	});
