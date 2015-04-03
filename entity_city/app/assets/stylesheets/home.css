@@ -94,18 +94,36 @@ path:hover {
 }
 
 .formtext {
-    height: 25px !important;
+    height: 50px !important;
     width: 300px;
 }
 
 label {
   color: #A32900;
+  float: left;
 }
 
 form {
   text-align: center;
 }
 
+input[type=text] {
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 30px;
+
+}
+
+input {
+  display: inline-block;
+  float: right;
+}
+
+textarea {
+  /*height: 50px !important;*/
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 30px;
+  width: 300px;
+}
 
 input[type=submit] {
   font-family: 'Amatic SC', sans-serif;
@@ -113,6 +131,14 @@ input[type=submit] {
   color: #A32900;
   padding: 100px;
 }
+
+#button {
+  text-align: center ;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+
 
 /*.blooddrop {
   display: inline-block;

@@ -43,18 +43,19 @@ $('body').click(function(e){
     		name !== 'H1' && 
     		name !== 'H3' && 
     		name !== 'INPUT' && 
+    		name !== 'TEXTAREA' &&
     		name !== 'FORM') { 
     		storyBox.css('visibility', 'hidden');
     	}
 	});
 
-function clickMe() {
-	$('body').click(function(e){
-		debugger
-		console.log(e.target);
-		})
-	}
-	clickMe();
+// function clickMe() {
+// 	$('body').click(function(e){
+// 		debugger
+// 		console.log(e.target);
+// 		})
+// 	}
+// 	clickMe();
 
 
 })
