@@ -9,20 +9,24 @@ var StoryCollectionView = Backbone.View.extend({
 	render: function(){
 		// this.$el.empty().html(this.template());
 		var self = this;
-		self.collection.storiesByNeighborhood().forEach(function(model){
-			// this.collection..forEach(function(model){
-				// var newView = new StoryListView({model: model});
-			if ( model.get('published') ) {
-				var newView = new StoryView({model:model});
-				// debugger
-				self.$el.append(newView.$el);
-			}
-		})
+	if (self.collection.storiesByNeighborhood().length !== 0) {
+			this.clearBox();
+			self.collection.storiesByNeighborhood().forEach(function(model){
+				// this.collection..forEach(function(model){
+					// var newView = new StoryListView({model: model});
+				if ( model.get('published') ) {
+					var newView = new StoryView({model:model});
+					// debugger
+					self.$el.append(newView.$el);
+				}
+			})
+		}
 		$('#storyInfoBox').append(self.$el);
 
 		$('.stories-div').append("<span id='fakeadd'><p>"+ 'Add a story' + "</p></span>");
-			
+
 		return this;
+
 	},
 	
 	initialize: function(){
@@ -60,6 +64,11 @@ var StoryCollectionView = Backbone.View.extend({
 	clearForm: function(){
 		var newBox = $('#new-story');
 		newBox.remove();
+	},
+
+	clearBox: function(){
+		var storyInfoBox = $('#storyInfoBox')
+		storyInfoBox.empty();
 	},
 
 	events: {
